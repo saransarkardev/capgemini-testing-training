@@ -1,13 +1,13 @@
 package org.example;
 
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-// Implementation of BeforeEach Annotation. (Before each Test method....this method will run where we will use @BeforeEach annotation.
-public class BeforeEachDemoTest {
+// Implementation of AfterEach Annotation. (After each Test method....this method will run where we will use @AfterEach annotation.
+public class AfterEachDemoTest {
 
     private Calculator calculator;
 
@@ -15,6 +15,12 @@ public class BeforeEachDemoTest {
     void setUp() {
         calculator = new Calculator();
         System.out.println("setup method calling...");
+    }
+
+    @AfterEach
+    void tearDown() {
+        calculator = null;
+        System.out.println("tearDown method is calling...");
     }
 
     @Test
