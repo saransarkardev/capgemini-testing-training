@@ -69,12 +69,21 @@ class StudentServiceTest {
         // assertNull(Object obj, Supplier<String> messageSupplier) --> Syntax
 
         assertNull(actualObject, () -> "Student object is not null.");
-
-
-
-
     }
 
+    @Test
+    public void getStudentsByIdTestUsingAssertNotNull() {
+        StudentService studentService = new StudentService();
+
+        Student s1 = new Student(1, "King");
+        studentService.addStudent(s1);
+
+        Student actualObject = studentService.getStudentId(1);
+
+//        assertNotNull(actualObject);
+//        assertNotNull(actualObject, "Student object is null.");
+        assertNotNull(actualObject, () -> "Student object is null.");
+    }
 
 
 }
