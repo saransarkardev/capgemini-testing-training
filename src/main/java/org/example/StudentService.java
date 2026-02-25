@@ -28,4 +28,12 @@ public class StudentService {
                 .findFirst()
                 .orElse(null);
     }
+
+    public Student getStudentByName(String name) {
+        return students.stream()
+                .filter(studentObj ->  studentObj.getName().equals(name))
+                .findFirst()
+                .orElseThrow(() -> new StudentNotFoundException("Student not found with name: " + name));
+
+    }
 }

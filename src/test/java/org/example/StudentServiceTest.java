@@ -122,8 +122,30 @@ class StudentServiceTest {
 //        assertNotEquals(102, actualObject.getId(), () -> "Id is equal.");
 
         assertNotEquals(s2, actualObject, () -> "Student is same");
+    }
 
+    @Test
+    public void getStudentByNameTestUsingAssertThrows() {
+        StudentService studentService = new StudentService();
 
+        Student s1 = new Student(1, "Ramesh");
+        studentService.addStudent(s1);
+
+        // The type of exception(StudentNotFoundException) must be there in order to pass the test case.
+        // Type - 1
+//        assertThrows(StudentNotFoundException.class, () -> {
+//            studentService.getStudentByName("Ramesh");
+//        });
+//
+        // Type - 2
+//        assertThrows(StudentNotFoundException.class, () -> {
+//            studentService.getStudentByName("Ramesh");
+//        }, "StudentNotFoundException must be thrown, But it was not thrown.");
+
+        // Type - 3
+        assertThrows(StudentNotFoundException.class, () -> {
+            studentService.getStudentByName("Ramesh");
+        }, () -> "StudentNotFoundException must be thrown, But it was not thrown.");
 
     }
 
