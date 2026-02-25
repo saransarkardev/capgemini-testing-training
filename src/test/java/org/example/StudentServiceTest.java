@@ -85,5 +85,26 @@ class StudentServiceTest {
         assertNotNull(actualObject, () -> "Student object is null.");
     }
 
+    @Test
+    public void getStudentByIdTestUsingAssertEquals() {
+        StudentService studentService = new StudentService();
+
+        Student s1 = new Student(1, "Saran");
+        studentService.addStudent(s1);
+
+        Student actualObject = studentService.getStudentId(1);
+
+//        assertEquals(1, actualObject.getId());
+//        assertEquals("Saran", actualObject.getName());
+
+//        assertEquals(s1, actualObject);
+
+//        assertEquals(1, actualObject.getId(), "Student Id is not equal");
+
+        assertEquals("Saran", actualObject.getName(), () -> "Student name is not equal");
+
+
+
+    }
 
 }
